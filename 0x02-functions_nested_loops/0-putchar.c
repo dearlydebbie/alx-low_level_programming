@@ -1,24 +1,20 @@
+#include <unistd.h>
 #include "main.h"
 
 /**
- * main - check the code for ALX School students.
- *
- * Program that prints Holberton, followed by a new line
- *
- * Return: always 0 (success)
+ * main - Check description
+ * Description: It prints the word Holberton, followed by a new line.
+ * Return: 0.
  */
 
 int main(void)
 {
-	char s[] = "_putchar";
-	int i = 0;
+	char word[9] = "_putchar\n";
+	int i;
 
-	while (s[i] != '\0')
+	for (i = 0; i < 9; i++)
 	{
-		_putchar(s[i]);
-		i++;
+		_putchar(word[i]);
 	}
-	_putchar(10);
-
 	return (0);
 }
