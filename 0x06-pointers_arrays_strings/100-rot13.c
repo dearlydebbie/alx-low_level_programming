@@ -5,23 +5,25 @@
  * @s: An input string to encode using rot13
  * Return: An encode string
  */
+
 char *rot13(char *s)
 {
-	int i = 0;
+	int i, j;
 
-	while (s[i] != '\0')
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		while ((s[i] >= 'a' && s[i] <= 'z') ||
-				(s[i] >= 'A' && s[i] <= 'Z'))
+		for (j = 0; a[j] != '\0'; j++)
 		{
-			if ((s[i] >= 'a' && s[i] <= 'm') ||
-					(s[i] >= 'A' && s[i] <= 'M'))
-				s[i] += 13;
-			else
-				s[i] -= 13;
-			i++;
+			if (s[i] == a[j])
+			{
+				s[i] = b[j];
+				break;
+			}
 		}
-		i++;
 	}
+
 	return (s);
 }
