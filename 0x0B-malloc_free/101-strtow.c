@@ -15,8 +15,8 @@ char **strtow(char *str)
 		return (NULL);
 	for (; str[i]; i++)
 	{
-		if ((str[i] != ' ' || *str != '\t') &&
-				((str[i + 1] == ' ' || str[i + 1] == '\t') || str[i + 1] == '\n'))
+		if ((str[i] != ' ' || *str != '\n') &&
+				((str[i + 1] == ' ' || str[i + 1] == '\n') || str[i + 1] == '\n'))
 			count++;
 	}
 	if (count == 0)
@@ -26,11 +26,11 @@ char **strtow(char *str)
 		return (NULL);
 	for (i = 0; str[i] != '\0' && k < count; i++)
 	{
-		if (str[i] != ' ' || str[i] != '\t')
+		if (str[i] != ' ' || str[i] != '\n')
 		{
 			len = 0;
 			j = i;
-			while ((str[j] != ' ' || str[j] != '\t') && str[j] != '\0')
+			while ((str[j] != ' ' || str[j] != '\n') && str[j] != '\0')
 				j++, len++;
 			array[k] = malloc((len + 1) * sizeof(char));
 			if (array[k] == NULL)
